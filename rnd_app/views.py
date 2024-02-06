@@ -12,7 +12,7 @@ def custom_log(func: Callable):
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
         logger.info(func.__name__)
-        print(result)
+
         return result
     return wrapper
 
@@ -34,7 +34,4 @@ def rnd_num(request):
     result = f"rnd_num -> {randint(0, 100)}"
     # logger.info(result)
     return JsonResponse({'result': result})
-
-
-
 
