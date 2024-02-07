@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rnd_app',
+    'homework_1',
 ]
 
 MIDDLEWARE = [
