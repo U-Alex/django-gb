@@ -24,13 +24,18 @@ LOGGING = {
             'level': 'INFO',
             'propagate': True,
         },
+        'homework_1': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
     },
     'formatters': {
         'simple': {
             'format': '%(levelname)s %(message)s'
         },
         'verbose': {
-            #'format': '{levelname} {asctime} {module} {process} {thread} {message}',
+            # 'format': '{levelname} {asctime} {module} {process} {thread} {message}',
             'format': '{levelname} {asctime} {name} {message}',
             'style': '{',
         },
