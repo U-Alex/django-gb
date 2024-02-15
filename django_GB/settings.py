@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rnd_app',
-    'homework_1',
+    #'lesson_2',
+    #'homework_1',
     'homework_2',
+    'blog',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,31 @@
+{% extends 'blog/main.html' %}
+
+{% block title %}post{% endblock %}
+
+{% block content %}
+
+    <ul>
+        {% for post in posts %}
+            {% if not post.is_public %}
+                <li>
+                    <a href="{% url 'author_post' post.id %}">{{ post.title }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <div>
+        {% for comment in comments %}
+            <p>комментарий: {{ comment.content }} </p>
+            <p>автор: {{ comment.author.firstname }} {{ comment.author.lastname }}</p>
+            <p>дата создания: {{ comment.date_create }}</p>
+            <p>дата обновления: {{ comment.date_edit }}</p>
+            {% if comment.date_create != comment.date_edit %}
+                изменено!!!!!
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}
