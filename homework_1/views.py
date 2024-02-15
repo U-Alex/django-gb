@@ -11,5 +11,5 @@ def index(request):
 
 @custom_log
 def about(request):
-    return render(request, 'post.html', {'test': 'test'})
+    return render(request, 'show_orders.html', {'test': 'test'})
 

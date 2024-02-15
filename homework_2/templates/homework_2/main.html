@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}home_work{% endblock %}</title>
+</head>
+<body>
+
+<header class="header">
+    <h1>logo</h1>
+    <a href="/index/">main page</a>
+    <a href="/about/">about</a>
+</header>
+<hr>
+
+<div class="content">
+{% block content %}{% endblock %}
+</div>
+<hr>
+
+<footer class="footer">
+    <p>footer</p>
+</footer>
+
+</body>
+</html>
