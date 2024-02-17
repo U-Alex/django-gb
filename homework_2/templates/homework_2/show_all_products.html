@@ -1,0 +1,19 @@
+{% extends 'homework_2/main.html' %}
+
+{% block title %}show all product{% endblock %}
+
+{% block content %}
+
+    <h2>список всех товаров</h2>
+    <h4><a href="{% url 'edit_prodict' 0 %}">добавить новый продукт</a></h4>
+    <ul>
+    {% for pr in products %}
+        <li>
+            <img src="/media/{{ pr.image }}" alt="<no pic> " height="50px">
+            {{ pr.name }} (количество на складе: {{ pr.quantity }}, цена за 1шт: {{ pr.price }})
+            &nbsp;<a href="{% url 'edit_prodict' pr.id %}">редактирование</a>
+        </li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
