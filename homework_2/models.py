@@ -39,7 +39,7 @@ class Order(models.Model):
     date_order = models.DateTimeField(auto_now=datetime.now())
 
     def __str__(self):
-        return f"{self.id} | {self.status} | {self.client.name} | {self.product.name} | {self.total_amount} | {self.date_order}"
+        return f"{self.id} | {self.status} | {self.client.name} | {self.total_amount} | {self.date_order}"
 
     def get_total_amount(self):
         total = 0
@@ -55,3 +55,5 @@ class Trash(models.Model):
     quantity = models.PositiveIntegerField(default=1)
     date_add = models.DateTimeField(auto_now=datetime.now())
 
+    def __str__(self):
+        return f"{self.id} | {self.product.name} | {self.order.id} | {self.quantity} | {self.date_add}"

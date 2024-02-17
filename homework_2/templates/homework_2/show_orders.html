@@ -1,0 +1,17 @@
+{% extends 'homework_2/main.html' %}
+
+{% block title %}post{% endblock %}
+
+{% block content %}
+
+    <h2>все заказы клиента {{ client.name }}</h2>
+    {% for order, trash in result.items %}
+        <h3>дата создания: {{ order.date_order|date:"d.m.Y" }}, статус: {{ order.status }}, общая стоимость: {{ order.total_amount }}</h3>
+        <ul>
+        {% for rec in trash %}
+            <li>{{ rec.product.name }} (количество: {{ rec.quantity }}, цена за 1шт: {{ rec.product.price }})</li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+
+{% endblock %}

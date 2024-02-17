@@ -1,0 +1,28 @@
+{% extends 'homework_2/main.html' %}
+
+{% block title %}post{% endblock %}
+
+{% block content %}
+
+    <h2>все товары, заказанные клиентом {{ client.name }} за последние 7 дней (всего: {{ product_count.0 }})</h2>
+    <ul>
+    {% for pr in result.0 %}
+        <li>{{ pr.name }} (количество на складе: {{ pr.quantity }}, цена за 1шт: {{ pr.price }})</li>
+    {% endfor %}
+    </ul>
+
+    <h2>все товары, заказанные клиентом {{ client.name }} за последние 30 дней (всего: {{ product_count.1 }})</h2>
+    <ul>
+    {% for pr in result.1 %}
+        <li>{{ pr.name }} (количество на складе: {{ pr.quantity }}, цена за 1шт: {{ pr.price }})</li>
+    {% endfor %}
+    </ul>
+
+    <h2>все товары, заказанные клиентом {{ client.name }} за последние 365 дней (всего: {{ product_count.2 }})</h2>
+    <ul>
+    {% for pr in result.2 %}
+        <li>{{ pr.name }} (количество на складе: {{ pr.quantity }}, цена за 1шт: {{ pr.price }})</li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
