@@ -1,0 +1,20 @@
+{% extends 'homework_2/main.html' %}
+
+{% block title %}edit product{% endblock %}
+
+{% block content %}
+    <h4>
+    {% if product %} редактирование {{ product.name }}
+    {% else %} новый товар
+    {% endif %}
+    </h4>
+
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        {{ form.as_div }}
+        <input type="submit" value=" OK ">
+        <input type="button" value="отмена" onClick='location.href="{% url 'show_all_products' %}"'>
+    </form>
+
+
+{% endblock %}
