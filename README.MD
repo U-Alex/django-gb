@@ -1,7 +1,7 @@
 admin   123
 
-user_1  123     readers
+user_1  123
 
-user_2  123     editors
+user_2  123
 
-user_3  123     admins
+user_3  123
