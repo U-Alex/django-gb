@@ -10,7 +10,14 @@ class Author(models.Model):
     fullname = models.CharField(max_length=200)
 
     def get_fullname(self):
-        return f"{self.firstname} {self.lastname}"
+        return f"{self.firstname} {self.lastname} {self.fullname}"
+
+    def save(self, *args, **kwargs):
+        self.fullname = f"{self.firstname} {self.lastname}"
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.fullname}"
 
 
 class Post(models.Model):

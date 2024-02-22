@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from django.core.exceptions import ObjectDoesNotExist
 from datetime import datetime, timedelta
 
-from .models import Client, Product, Order, Trash
+from .models import Client, Product, Order, Basket
 from .forms import EditProductForm
 
 
@@ -46,7 +46,7 @@ def get_orders_by_client_id(request, client_id):
     result = {}
     orders = Order.objects.filter(client=client)
     for order in orders:
-        trash = Trash.objects.filter(order=order)
+        trash = Basket.objects.filter(order=order)
         result[order] = trash
 
     return render(request,

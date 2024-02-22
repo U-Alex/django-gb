@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from ...models import Client, Product, Order, Trash
+from ...models import Client, Product, Order, Basket
 
 
 class Command(BaseCommand):
@@ -18,7 +18,7 @@ class Command(BaseCommand):
             return
 
         product = Product.objects.get(pk=kwargs['prod_id'])
-        trash = Trash.objects.filter(order_id=order.id, product_id=product.id).last()
+        trash = Basket.objects.filter(order_id=order.id, product_id=product.id).last()
         if trash:
             if trash.quantity > 1:
                 trash.quantity -= 1

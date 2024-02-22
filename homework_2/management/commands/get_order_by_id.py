@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from ...models import Order, Trash
+from ...models import Order, Basket
 
 
 class Command(BaseCommand):
@@ -11,7 +11,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         order = Order.objects.filter(pk=kwargs['ord_id']).last()
         if order:
-            trash = Trash.objects.filter(order=order).values()
+            trash = Basket.objects.filter(order=order).values()
 
             self.stdout.write(f"order: {order}\ntrash: {trash}")
 

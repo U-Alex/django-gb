@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from ...models import Client, Product, OrderStatus, Order, Trash
+from ...models import Client, Product, OrderStatus, Order, Basket
 from random import randint, choice
 
 
@@ -40,15 +40,15 @@ class Command(BaseCommand):
         for order in orders:
             for i in range(10):
                 product = choice(products)
-                trash = Trash.objects.filter(order_id=order.id, product_id=product.id).last()
+                trash = Basket.objects.filter(order_id=order.id, product_id=product.id).last()
                 if trash:
                     trash.quantity += 1
                     trash.save()
                 else:
-                    new_trash = Trash(product=product,
-                                      order=order,
-                                      date_add=f"2024-01-{randint(0, 2)}{randint(1, 8)}",
-                                      )
+                    new_trash = Basket(product=product,
+                                       order=order,
+                                       date_add=f"2024-01-{randint(0, 2)}{randint(1, 8)}",
+                                       )
                     new_trash.save()
             order.total_amount = order.get_total_amount()
             order.save()
