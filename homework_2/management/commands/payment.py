@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 from django.db import transaction
-from ...models import Order, Trash
+from ...models import Order, Basket
 
 
 class Command(BaseCommand):
@@ -15,7 +15,7 @@ class Command(BaseCommand):
         with transaction.atomic():
             order = Order.objects.filter(pk=kwargs['ord_id'], client_id=kwargs['cl_id']).last()
             if order:
-                for rec in Trash.objects.filter(order=order):
+                for rec in Basket.objects.filter(order=order):
                     if rec.quantity > rec.product.quantity:
                         check_quantity.append([rec.product.name, rec.quantity - rec.product.quantity])
 

@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from ...models import Client, Product, Order, Trash
+from ...models import Client, Product, Order, Basket
 
 
 class Command(BaseCommand):
@@ -17,12 +17,12 @@ class Command(BaseCommand):
             order = Order.objects.create(client=client, total_amount=0)
 
         product = Product.objects.get(pk=kwargs['prod_id'])
-        trash = Trash.objects.filter(order_id=order.id, product_id=product.id).last()
+        trash = Basket.objects.filter(order_id=order.id, product_id=product.id).last()
         if trash:
             trash.quantity += 1
             trash.save()
         else:
-            new_trash = Trash(product=product, order=order)
+            new_trash = Basket(product=product, order=order)
             new_trash.save()
         order.total_amount = order.get_total_amount()
         order.save()
