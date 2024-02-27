@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import logging
-from django.http import HttpResponse, JsonResponse
+# from django.http import HttpResponse, JsonResponse
 from random import randint
 from typing import Callable
 import pandas as pd

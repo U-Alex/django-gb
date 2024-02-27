@@ -1,0 +1,21 @@
+:root {
+    --tone1-color: #D4DCC7;
+    --tone2-color: #b7c5b7;
+    --tone3-color: #80978e;
+    --tone4-color: #66827c;
+    --tone5-color: rgb(75, 185, 187);
+    --link1-color: #003000;
+    --link2-color: #0013bb;
+    --warn1-color: #ff0055;
+    --warn2-color: #ff7575;
+}
+
+* { margin: 0; padding: 0;}
+body {
+    background: var(--tone1-color);
+                /*url(./images/_back3_1.png) no-repeat center top;*/
+    background-size: cover;
+    /* font-family: "GOST_0", "Arial"; */
+    /*font-family: "Arial";*/
+    font-size: 13px;
+}

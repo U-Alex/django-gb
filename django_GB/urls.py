@@ -17,14 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from django.conf import settings            ####debug
-from django.conf.urls.static import static  ####debug
+# from django.conf import settings            ####debug
+# from django.conf.urls.static import static  ####debug
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('rnd/', include('rnd_app.urls')),
-    # path('les2/', include('lesson_2.urls')),
+    path('les2/', include('lesson_2.urls')),
     # path('', include('homework_1.urls')),
     path('homework_2/', include('homework_2.urls')),
+    # path('__debug__/', include('debug_toolbar.urls')),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#######
+]# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#######
