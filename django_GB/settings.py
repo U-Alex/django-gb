@@ -27,7 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.getenv('DEBUG'))
+DEBUG = False if os.environ.get("DEBUG") == "False" else True
+
 # DEBUG = False
 # SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True
