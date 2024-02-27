@@ -43,7 +43,7 @@ class OrderAdmin(admin.ModelAdmin):
     search_fields = ['client__name']
     search_help_text = 'Поиск по полю client'
     fields = ['client', 'status', 'get_total_amount', 'date_order']
-    readonly_fields = ['client', 'get_total_amount', 'date_order']
+    readonly_fields = ['get_total_amount', 'date_order']
     inlines = (TermInlineAdmin,)
 
 
