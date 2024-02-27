@@ -9,6 +9,7 @@
     <ul>
     {% for pr in products %}
         <li>
+{#            <img src="/media/{{ pr.image }}" alt="<no pic> " height="50px">#}
             <img src="/media/{{ pr.image }}" alt="<no pic> " height="50px">
             {{ pr.name }} (количество на складе: {{ pr.quantity }}, цена за 1шт: {{ pr.price }})
             &nbsp;<a href="{% url 'edit_prodict' pr.id %}">редактирование</a>
