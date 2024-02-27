@@ -6,13 +6,13 @@ from typing import Callable
 import pandas as pd
 
 
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
 
 def custom_log(func: Callable):
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
-        logger.info(func.__name__)
+        # logger.info(func.__name__)
 
         return result
     return wrapper
